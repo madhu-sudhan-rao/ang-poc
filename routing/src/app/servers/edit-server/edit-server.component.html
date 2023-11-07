@@ -1,0 +1,22 @@
+<div class="field">
+    <div><label for="name">Server Name</label></div>
+    <input
+      type="text"
+      id="name"
+      class="border-1 border-surface border-round p-2 w-5"
+      [(ngModel)]="serverName">
+  </div>
+  <div class="field">
+    <div><label for="status">Server Status</label></div>
+    <select
+      id="status"
+      class="border-1 border-surface border-round w-5 p-2"
+      [(ngModel)]="serverStatus">
+      <option value="online">Online</option>
+      <option value="offline">Offline</option>
+    </select>
+  </div>
+  <button
+    class="bg-primary p-2 border-round border-1 surface-border mb-2"
+    (click)="onUpdateServer()">Update Server</button>
+  
