@@ -1,1 +1,81 @@
-<p>reactive-forms works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+   <div formGroupName="userData">
+        <div class="field m-2">
+          <label for="firstName" class="font-semibold m-2">First Name</label>
+          <input 
+            type="text" 
+            class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+            id="firstName"
+            formControlName="firstName"
+          >
+          <span class="m-2" *ngIf="!signupForm.get('userData.firstName')?.valid && signupForm.get('userData.firstName')?.touched">Please enter a valid firstName!</span>
+        </div>
+        <div class="field m-2">
+          <label for="lastName" class="font-semibold m-2">Last Name</label>
+          <input 
+            type="text" 
+            class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+            id="lastName"
+            formControlName="lastName"
+          >
+        </div>
+   </div>
+    <div class="field m-2">
+      <label for="username" class="font-semibold m-2">Username</label>
+      <input 
+        type="text" 
+        class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+        id="username"
+        formControlName="username"
+      >
+      <span class="m-2" *ngIf="!signupForm.get('username')?.valid && signupForm.get('username')?.touched">Please enter a valid username!</span>
+    </div>
+    <div class="field m-2">
+      <label for="email" class="font-semibold m-2">Email</label>
+      <input 
+        type="email" 
+        class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+        id="email"
+        name="email"
+        formControlName="email"
+      >
+      <span class="m-2" *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched">Please enter a valid email!</span>
+    </div>
+    <div class="field m-2">
+        <div class="radio" *ngFor="let gender of genders">
+            <label for="{{gender}}">
+                <input 
+                    type="radio" 
+                    [value]="gender"
+                    name="gender" 
+                    id="{{gender}}"
+                    formControlName="gender"
+                >
+                {{gender}}
+            </label>
+        </div>
+    </div>
+    <div class="" formArrayName="hobbies">
+        <h4>Your hobbies</h4>
+        <button 
+            type="button" 
+            class="p-2 border-1 border-round surface-border bg-gray-500"
+            (click)="onAddHobby()"
+        >Add hobby</button>
+        <div class="field m-2" *ngFor="let hobbyControl of controls; let i = index">
+            <input 
+                type="text" 
+                name="" 
+                id=""
+                [formControlName] = "i"
+            >
+        </div>
+    </div>
+    <div class="m-2">
+      <button 
+        type="submit"
+        class="p-2 bg-primary border-1 border-round surface-border cursor-pointer"
+      >Submit
+    </button>
+    </div>
+  </form>
