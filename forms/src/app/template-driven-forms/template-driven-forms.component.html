@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="field m-2">
+      <label for="username" class="font-semibold m-2">Username</label>
+      <input 
+        type="text" 
+        class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+        id="username"
+        ngModel
+        name="username"
+        required
+      >
+    </div>
+    <div class="m-2">
+      <button 
+        (click)="suggestUserName()"
+        class="p-2 bg-secondary border-1 border-round surface-border cursor-pointer">Suggest an username</button>
+    </div>
+    <div class="field m-2">
+      <label for="email" class="font-semibold m-2">Email</label>
+      <input 
+        type="email" 
+        class="text-base text-color surface-overlay p-2 border-1 border-round outline-none focus:border-primary w- " 
+        id="email"
+        ngModel
+        name="email"
+        required
+        email
+        #email="ngModel"
+      >
+      <p *ngIf="!email.valid && email.touched">Please enter a valid email!</p>
+    </div>
+    <div class="field m-2">
+      <label for="secret" class="font-semibold m-2">Secret Questions</label>
+      <select 
+        id="secret"
+        ngModel
+        name="secret" 
+        required
+      >
+        <option value="pet">Your first pet?</option>
+        <option value="teacher">Your first teacher?</option>
+      </select>
+    </div>
+    <div class="m-2">
+      <button 
+        type="submit"
+        [disabled]="!form.valid"
+        class="p-2 bg-primary border-1 border-round surface-border cursor-pointer"
+      >Submit
+    </button>
+    </div>
+  </form>
