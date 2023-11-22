@@ -1,16 +1,28 @@
 <div class="flex flex-row m-2">
   <div class="col-2  " >
-    <a routerLink="/" class="bg-gray-300 p-3 text-color no-underline">
+    <a 
+      routerLink="/" 
+      routerLinkActive="bg-primary text-white "
+      [routerLinkActiveOptions]="{exact: true}"
+      class="bg-gray-300 p-3 text-color no-underline"
+    >
       Home
     </a>
   </div>
   <div class="col-2  " >
-    <a routerLink="servers" class="bg-gray-300 p-3 text-color no-underline">
+    <a 
+      routerLink="servers" 
+      routerLinkActive="bg-primary text-white "
+      class="bg-gray-300 p-3 text-color no-underline"
+    >
       Servers
     </a>
   </div>
   <div class="col-2  " >
-    <a routerLink="users" class="bg-gray-300 p-3 text-color no-underline">
+    <a 
+      routerLink="users"
+      routerLinkActive="bg-primary text-white"
+      class="bg-gray-300 p-3 text-color no-underline">
       Users
     </a>
   </div>
